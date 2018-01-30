@@ -175,12 +175,7 @@ open class Family {
     var total = 0
     for member in members {
         if member.job != nil {
-            switch member.job!.type {
-            case .Salary(let val):
-                total = total + val
-            case .Hourly(let val):
-                total = total + Int(val * Double(2000))
-            }
+            total += member._job!.calculateIncome(2000)
         }
     }
     return total
